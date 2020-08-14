@@ -2,6 +2,7 @@
     {
         "id":1,
         "parking":"Parking 1",
+        "parkingId": 1,
         "city": "Paris",
         "clientName": "Thomas Martin",
         "vehicle": "car",
@@ -12,6 +13,7 @@
     {
         "id":2,
         "parking":"Parking 1",
+        "parkingId": 1,
         "city": "Roissy",
         "clientName": "Frédéric Bertholet",
         "vehicle": "car",
@@ -20,7 +22,9 @@
         "checkout":"2020-08-27T06:00:00Z"
     },
     {
+        "id":3,
         "parking":"Parking 1",
+        "parkingId": 1,
         "city": "Roissy",
         "clientName": "Anatole Basthoz",
         "vehicle": "car",
@@ -30,7 +34,9 @@
     }
     ,
     {
+        "id":4,
         "parking":"Parking 2",
+        "parkingId": 2,
         "city": "Beauvais",
         "clientName": "Caroline Wattremez",
         "vehicle": "car",
@@ -39,7 +45,9 @@
         "checkout":"2020-08-27T06:00:00Z"
     },
     {
+        "id":5,
         "parking":"Parking 3",
+        "parkingId": 3,
         "city": "Orly",
         "clientName": "Thomas Martin",
         "vehicle": "car",
@@ -48,7 +56,9 @@
         "checkout":"2020-08-29T06:00:00Z"
     },
     {
+        "id":6,
         "parking":"Parking 4",
+        "parkingId": 4,
         "city": "Paris",
         "clientName": "Elena Richardson",
         "vehicle": "car",
