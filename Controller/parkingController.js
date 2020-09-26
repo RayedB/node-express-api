@@ -3,7 +3,7 @@ const parkingController = {}
 
 parkingController.getParkings = async (req,res)=> {
     try {
-        const docs = await parking.getParkings()
+        const docs = await parking.list()
         res.status(200).json(docs)
     } catch (err) {
         console.log(err)
@@ -13,7 +13,7 @@ parkingController.getParkings = async (req,res)=> {
 parkingController.getParking = async (req,res)=> {
     const id = parseInt(req.params.id)
     try {
-        const docs = await parking.getParking(id)
+        const docs = await parking.getOne(id)
         res.status(200).json(docs)
     } catch (err) {
         console.log(err)
@@ -31,25 +31,23 @@ parkingController.createParking = async (req,res)=> {
     }
 }
 
-
-
-parkingController.replaceParking = async (req,res)=> {
+parkingController.updateParking = async (req,res)=> {
     try {
         const id = parseInt(req.params.id)
         const replacementParking = req.body
-        const parking = await db.collection('parkings').replaceOne({id},replacementParking)
-        res.status(200).json(parking)
+        const modifiedParking = await parking.replace(id, replacementParking)
+        res.status(200).json(modifiedParking)
     } catch (err) {
         console.log(err)
         throw err
     }
 }
-parkingController.updateParking = async (req,res)=> {
+parkingController.replaceParking = async (req,res)=> {
     try {
-        const id = parseInt(req.params.id)
         const replacementParking = req.body
-        const parking = await db.collection('parkings').updateOne({id}, {$set: replacementParking}, {upsert:true})
-        res.status(200).json(parking)
+        const id = parseInt(req.params.id)
+        const updatedParking = await parking.edit(id, replacementParking)
+        res.status(200).json(updatedParking)
     } catch (err) {
         console.log(err)
         throw err
@@ -58,7 +56,7 @@ parkingController.updateParking = async (req,res)=> {
 parkingController.removeParking = async (req,res)=> {
     try {
         const id = parseInt(req.params.id)
-        const parking = await db.collection('parkings').deleteOne({id})
+        await parking.destroy(id)
         res.status(200).json(parking)
     } catch (err) {
         console.log(err)
