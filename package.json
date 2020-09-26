@@ -18,6 +18,7 @@
   "homepage": "https://github.com/RayedB/node-express-api#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "mongodb": "^3.6.0"
   }
 }
