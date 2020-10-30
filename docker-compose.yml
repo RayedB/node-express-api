@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    api:
+        build: .
+        ports:
+            - "8080:8080"
+        links:
+            - mongo
+    mongo:
+        image: mongo:4.2
+        ports:
+            - "27017:27017"
+        expose:
+            - "27017-27019"
+        volumes:
+            - ./data:/data/db

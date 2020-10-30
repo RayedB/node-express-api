@@ -6,14 +6,13 @@ database.connect = async () => {
  * Import MongoClient & connexion à la DB
  */
     const MongoClient = require('mongodb').MongoClient;
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'parkingApi';
-    let db
-    MongoClient.connect(url, function(err, client) {
-    console.log("Connected successfully to MongoDB Server");
-    db = client.db(dbName);
+    const url = 'mongodb://mongo:27017/parkingApi';
+    let client = await MongoClient.connect(url,{ useNewUrlParser: true });
+    let db = client.db('parkingApi');
     database.db = db
-    });
+
+
+
 }
 
 module.exports = database

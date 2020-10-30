@@ -3,7 +3,8 @@ const app = express()
 const routes = require('./routes')
 const database = require('./database')
 
-database.connect()
+const db = Promise.resolve(database.connect())
+
 
 app.use(express.json())
 app.use(routes)
